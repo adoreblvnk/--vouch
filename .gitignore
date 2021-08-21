@@ -1,0 +1,8 @@
+# VSC
+.vscode
+
+# environment
+venv/
+
+# ignored folders
+resources/
