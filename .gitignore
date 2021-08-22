@@ -1,8 +1,7 @@
-# VSC
-.vscode
-
 # environment
 venv/
+.vscode/
+__pycache__/
 
 # ignored folders
 resources/
