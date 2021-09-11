@@ -11,7 +11,7 @@ class VouchingDocumentsForm(Form):
     start_col = StringField("", validators=[validators.Optional(), validators.length(
         min=1, max=3)], render_kw={"placeholder": "(optional) start column"})
     end_col = StringField("", validators=[validators.Optional(), validators.length(
-        min=1, max=3)], render_kw={"placeholder": "(optional) end column"})
+        min=1, max=3)], render_kw={"placeholder": "(mandatory if start col is filled) end column"})
     invoice_zip = FileField("upload invoices zip.", validators=[
                             validators.DataRequired()])
 

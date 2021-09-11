@@ -141,7 +141,7 @@ def merge_images(pil_images):
     return new_img
 
 
-def cbook_dict(cbook_file, ref_id, sheet_name=None, start_col=None, end_col=None):
+def cbook_dict(cbook_file, ref_id, sheet_name=0, start_col="", end_col=""):
     """
     description: converts contents of excel file into a dictionary. returns cashbook dictionary.
 
@@ -151,18 +151,13 @@ def cbook_dict(cbook_file, ref_id, sheet_name=None, start_col=None, end_col=None
     start_col: start column to extract data from.
     end_col: end column to extract data from.
     """
-    cbook_dict = {}
-    if sheet_name and start_col and end_col:
-        cbook_df = pd.read_excel(
-            cbook_file, sheet_name=sheet_name, usecols=f"{start_col}:{end_col}").dropna()
-    elif sheet_name:
-        cbook_df = pd.read_excel(
-            cbook_file, sheet_name=sheet_name).dropna()
-    elif start_col and end_col:
-        cbook_df = pd.read_excel(
-            cbook_file, usecols=f"{start_col}:{end_col}").dropna()
-    else:
-        cbook_df = pd.read_excel(cbook_file).dropna()
+    cbook_dict, usecols = {}, f"{start_col}:{end_col}"
+    if sheet_name.strip() == "":
+        sheet_name = 0
+    if start_col.strip() == "" and end_col.strip() == "":
+        usecols = None
+    cbook_df = pd.read_excel(
+        cbook_file, sheet_name=sheet_name, usecols=usecols).dropna()
     for row in cbook_df.index:
         row_data = cbook_df.iloc[row]
         key = row_data[ref_id]
@@ -245,12 +240,13 @@ if __name__ == "__main__":
     start_col = ""
     end_col = ""
     try:
-        cashbook_dict = cbook_dict(cbook_file, ref_id, sheet_name)
+        cashbook_dict = cbook_dict(
+            cbook_file, ref_id, sheet_name, start_col, end_col)
     except ValueError:
-        # TODO: file not in excel format
+        print("val error", ValueError)
         pass
     except Exception as e:
-        # error
+        print("exception", e)
         pass
 
     transactions_with_errors = {}
