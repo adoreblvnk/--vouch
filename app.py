@@ -127,6 +127,10 @@ def vouching_results():
         return render_template("vouching_results.html")
 
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html")
