@@ -18,6 +18,7 @@ prod by blvnk.
 
 ![](demo/vouching_demo_1.png) ![](demo/vouching_demo_2.png) ![](demo/vouching_demo_3.png) ![](demo/vouching_demo_4.png) ![](demo/vouching_demo_5.png) ![](demo/vouching_demo_6.png)
 
+[![thumbnail](https://i.imgur.com/Nt2Vm0a.png)](https://streamable.com/ip6z2r)
 ### Vouching Results
 
 ![](demo/vouching_results.png)
