@@ -4,9 +4,6 @@
     <p>
       A web app aimed at automation via data extraction & data matching for vouching in the audit industry. Created to solve Challenge Statement 3 in Accounting Innovation Challenge 2021 (AIC21).
     </p> <!-- Description -->
-    <p>
-      Built With: •
-    </p> <!-- Built With -->
 </div>
 
 ---
